@@ -15,7 +15,6 @@ import Swiper from 'swiper';
 export class FirstcompoComponent implements OnInit , AfterViewInit {
   GeolocationInfo: any;
   AcTsuggestions: ActivitySugg[] = [];
-  testing = true;
   constructor(private connectorService: ConnectorService) {}
 
   ngOnInit(): void {
@@ -32,19 +31,12 @@ export class FirstcompoComponent implements OnInit , AfterViewInit {
   getWeatherStatus(): void {
     this.connectorService.getGeolocalisationInfo().subscribe(res => {
       this.GeolocationInfo = res;
-      console.log("geo =", this.GeolocationInfo);
       return  this.GeolocationInfo as GeolocationInfo
     });
   }
 
   getActivitySugg(): void {
-    if (this.testing){
-      this.AcTsuggestions.push(new ActivitySugg("Activity 1", "Description for Activity 1"));
-      this.AcTsuggestions.push(new ActivitySugg("Activity 2", "Description for Activity 2"));
-      this.AcTsuggestions.push(new ActivitySugg("Activity 3", "Description for Activity 3"));
-      this.AcTsuggestions.push(new ActivitySugg("Activity 4", "Description for Activity 4"));
-      this.AcTsuggestions.push(new ActivitySugg("Activity 5", "Description for Activity 5"));
-    }else {
+    
       this.connectorService.getActivitySugg().subscribe((res: any) => {
         if (Array.isArray(res)) {
         this.AcTsuggestions = res.map((item: any) => {
@@ -61,10 +53,9 @@ export class FirstcompoComponent implements OnInit , AfterViewInit {
             PlaceUrl: place.url
           } as ActivitySugg;
         });
-        console.log("Suggestions:", this.AcTsuggestions);
       }
       });
     }
-  }
+  
 
 }

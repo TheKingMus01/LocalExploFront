@@ -1,2 +1,0 @@
-# LocalExploFront
-LocalExplo Frontend

@@ -1,9 +1,8 @@
-import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, OnInit  } from '@angular/core';
+import { AfterViewInit, Component, OnInit  } from '@angular/core';
 import {ConnectorService} from '../Services/connector.service';
 import { ActivitySugg } from '../models/activity-sugg';
 import { CommonModule } from '@angular/common';
 import { GeolocationInfo } from '../models/geolocation-info';
-import { SwiperOptions } from 'swiper/types';
 import Swiper from 'swiper';
 
 @Component({
@@ -12,12 +11,11 @@ import Swiper from 'swiper';
   imports: [CommonModule],
   templateUrl: './firstcompo.component.html',
   styleUrl: './firstcompo.component.css',
-  schemas : [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class FirstcompoComponent implements OnInit , AfterViewInit {
   GeolocationInfo: any;
   AcTsuggestions: ActivitySugg[] = [];
-  testing = false;
+  testing = true;
   constructor(private connectorService: ConnectorService) {}
 
   ngOnInit(): void {

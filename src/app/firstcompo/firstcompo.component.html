@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="headers">
+      <div class="weather-info">
+        <h2>{{ GeolocationInfo.city }} Weather Information</h2>
+        <div class="weather-details">
+          <p>Current Weather: {{ GeolocationInfo.text }}</p>
+          <img [src]="GeolocationInfo.icon" [alt]="GeolocationInfo.text">
+          <p>Temperature: {{ GeolocationInfo.temp_c }}°C</p>
+        </div>
+      </div> 
+
+      <div class="activity-suggestions">
+          <h2>Activity Suggestions</h2>
+          <div class="swiper-container mySwiper" >
+                <div class="swiper-wrapper" >
+                  <div class="swiper-slide" *ngFor="let Act of AcTsuggestions">
+                    <h3>{{ Act.Title }}</h3>
+                      <p>{{ Act.Description }}</p>
+                      <a [href]="Act.PlaceUrl">
+                      <img [src]="Act.PlaceImage" [alt]="Act.PlaceDescription">
+                    </a>
+                  </div>
+                </div>
+          </div>
+
+  </div>
+
+</div>
+      
+    <!-- <div class="google-maps">
+      <h2>Google Maps Integration</h2>
+      <img src="../../assets/pic1.png" alt="Google Maps Placeholder">
+    </div> -->
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="swiper-container mySwiper" >
+  <div class="swiper-wrapper" >
+    <div class="swiper-slide"*ngFor="let Act of AcTsuggestions" >{{ Act.Title }}</div>
+  </div>
+
+</div> -->
